@@ -17,122 +17,158 @@
 
 html{ scroll-behavior:smooth; }
 
-body{
-    background:linear-gradient(135deg,#e0f2fe,#fdf4ff,#f0f9ff);
-    color:#1e293b;
-    overflow-x:hidden;
+:root{
+    --saffron:#E67E22;
+    --golden:#F5E6C8;
+    --maroon:#6E1E2A;
+    --accent-gold:#D4AF37;
 }
 
-/* PARTICLES */
-#particles{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:-1;
+body{
+    background:var(--golden);
+    color:var(--maroon);
+    overflow-x:hidden;
 }
 
 /* NAVBAR */
 nav{
-    background:rgba(255,255,255,0.8);
-    backdrop-filter:blur(12px);
+    background:rgba(245,230,200,0.95);
     padding:20px;
     text-align:center;
     position:sticky;
     top:0;
+    z-index:999;
+    border-bottom:2px solid var(--accent-gold);
 }
 
 nav a{
     margin:0 20px;
     text-decoration:none;
-    color:#334155;
+    color:var(--maroon);
     font-weight:500;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#0ea5e9;
+    color:var(--saffron);
 }
 
-/* SECTION */
-section{
-    padding:100px 20px;
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
+    padding:20px;
+    background:linear-gradient(
+        to bottom,
+        #FF8C42,
+        #F4C430,
+        #FFF5E1
+    );
 }
 
-.card{
-    background:white;
-    padding:40px;
-    max-width:700px;
-    margin:auto;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:var(--maroon);
+}
+
+.hero p{
+    max-width:600px;
+    margin-bottom:30px;
+    font-size:1.1rem;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-buttons a{
+    padding:12px 30px;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-}
-
-/* BUTTON */
-button{
-    padding:12px;
-    width:100%;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+.primary-btn{
+    background:var(--maroon);
     color:white;
-    cursor:pointer;
-    margin-top:10px;
-    transition:.3s;
 }
 
-button:hover{
-    transform:scale(1.03);
+.secondary-btn{
+    border:2px solid var(--maroon);
+    color:var(--maroon);
 }
 
-/* INPUT */
+.hero-buttons a:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTION STYLE */
+.section{
+    padding:100px 15%;
+    border-bottom:2px solid var(--accent-gold);
+    background:white;
+}
+
+.section:nth-child(even){
+    background:var(--golden);
+}
+
+.section h2{
+    margin-bottom:30px;
+    font-size:2rem;
+    color:var(--maroon);
+}
+
+.section p{
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+/* MEDIA */
+iframe{
+    width:100%;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* FORM */
 input, textarea{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border:1px solid #cbd5e1;
-    border-radius:10px;
+    border:1px solid var(--accent-gold);
+    border-radius:8px;
 }
 
-textarea{ resize:none; }
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.4);
-    justify-content:center;
-    align-items:center;
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:var(--maroon);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.modal-content{
-    background:white;
-    padding:40px;
-    width:350px;
-    border-radius:20px;
+button:hover{
+    background:var(--saffron);
 }
 
-.error{ color:#ef4444; font-size:14px; }
-.success{ color:#16a34a; font-size:14px; }
-
-iframe{
-    width:100%;
-    border-radius:15px;
-    margin-top:20px;
-}
-
+/* FOOTER */
 footer{
     text-align:center;
     padding:30px;
-    background:rgba(255,255,255,0.7);
+    background:var(--maroon);
+    color:white;
 }
 </style>
 </head>
@@ -149,76 +185,66 @@ footer{
     <a onclick="openModal()">Login</a>
 </nav>
 
-<section id="home">
-    <h1>A Dawn of Stories and Creative Expression ✨</h1>
+<section class="hero" id="home">
+    <h1>A Dawn of Stories & Creative Expression ✨</h1>
+    <p>
+        A personal creative library inspired by light, color, and culture.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="#about" class="primary-btn">Explore the Space</a>
+        <a href="#media" class="secondary-btn">Enter the Library</a>
+    </div>
 </section>
 
 <section id="about">
-    <div class="card">
-        <h2>About Me / Admin</h2>
-        <p><strong>Ziqta Aruna Syahidah</strong></p>
-        <p>Founder & Admin of Runa Kala Library ✨</p>
-        <br>
-        <p>
-        Runa Kala Library lahir dari semangat cahaya fajar — tempat warna, seni, dan cerita bertemu. Sebuah ruang pribadi yang merayakan literasi, kreativitas, dan ekspresi.
-        </p>
+   <section class="section" id="about">
+    <h2>About the Founder</h2>
+    <p><strong>Ziqta Aruna Syahidah</strong></p>
+    <p>
+    Runa Kala Library lahir dari semangat cahaya fajar — tempat warna, seni, dan cerita bertemu. 
+    Sebuah ruang pribadi yang merayakan literasi, kreativitas, dan ekspresi.
+    </p>
 
-        <br><hr><br>
-
-        <h3>Profile & Social Media</h3>
-        <p>
-            📌 <a href="https://www.canva.com/design/DAHBldfUCrE/" target="_blank">Lihat Curriculum Vitae</a>
-        </p>
-        <p>
-            📷 <a href="https://www.instagram.com/zqtarunaa_" target="_blank">@zqtarunaa_</a>
-        </p>
-        <p>
-            💼 <a href="https://music.youtube.com/watch?v=WqocXW4JUdk&si=8Ni5JL2tM1CvED0j" target="_blank">song </a>
-        </p>
-    </div>
-</section>
-    <section id="aboutus">
-    <div class="card">
-        <h2>About Us</h2>
-        <p>
-        Runa Kala Library adalah ruang yang ditujukan untuk:
-        </p>
-
-        <br>
-
-        <p>🎓 Pelajar & Mahasiswa</p>
-        <p>💡 Kreator & pembelajar mandiri</p>
-        <p>🌐 Bibliophile</p>
-        <p>📚 Ablibiophobia & Book-bosomed</p>
-
-        <br>
-
-        <p>
-        Runa Kala Library represents the quiet power of dawn — a moment where darkness turns into possibility. “Runa” carries the whisper of Aruna, the light before sunrise. “Kala” honors art as a language beyond borders.
-This is not just a library. It is a living canvas of stories.
-        </p>
-    </div>
+    <p>
+    📌 <a href="https://www.canva.com/design/DAHBldfUCrE/" target="_blank">Curriculum Vitae</a><br>
+    📷 <a href="https://www.instagram.com/zqtarunaa_" target="_blank">@zqtarunaa_</a>
+    </p>
 </section>
     
-<section id="media">
-    <div class="card">
-        <h2>Media</h2>
-        <iframe height="315"
-        src="https://www.youtube.com/embed/phRZKH1tQsQ?si=_I8tcmfsz3kQLNib"
-        allowfullscreen></iframe>
-    </div>
+    <section id="aboutus">
+    <section class="section" id="aboutus">
+    <h2>About Us</h2>
+
+    <p>🎓 Students & University Learners</p>
+    <p>💡 Independent Creators</p>
+    <p>📚 Bibliophiles</p>
+    <p>🌐 Digital-era Thinkers</p>
+
+    <p>
+   Runa Kala Library represents the quiet power of dawn — a moment where darkness turns into possibility. “Runa” carries the whisper of Aruna, the light before sunrise. “Kala” honors art as a language beyond borders.
+   This is not just a library. It is a living canvas of stories.
+    </p>
+</section>
+    
+<section class="section" id="media">
+    <h2>Media</h2>
+    
+    <iframe height="315"
+    src="https://www.youtube.com/embed/phRZKH1tQsQ?si=_I8tcmfsz3kQLNib"
+    allowfullscreen></iframe>
 </section>
 
-<section id="feedback">
-    <div class="card">
-        <h2>Feedback</h2>
-        <form onsubmit="kirimFeedback(event)">
-            <input type="email" id="email" placeholder="Masukkan Email" required>
-            <textarea rows="4" id="pesan" placeholder="Tulis feedback kamu..." required></textarea>
-            <button type="submit">Kirim Feedback</button>
-        </form>
-        <p id="notif"></p>
-    </div>
+<section class="section" id="feedback">
+    <h2>Feedback</h2>
+
+    <form onsubmit="kirimFeedback(event)">
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea rows="4" id="pesan" placeholder="Share your thoughts..." required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <p id="notif"></p>
 </section>
 
 <!-- LOGIN MODAL -->
