@@ -198,9 +198,22 @@ footer{
     animation:fadeInLogo 1.5s ease forwards;
 }
 
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
 .logo img{
-    height:50px;
-    transition:.4s ease;
+    height:45px;
+    width:auto;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:1px;
 }
 
 /* GOLD GLOW HOVER */
@@ -278,7 +291,9 @@ nav.shrink{
   <nav>
 
     <div class="logo">
-        <img src="LOGO 1.png" alt="Hero Logo" style="height:100px; margin-bottom:20px;">
+    <img src="LOGO 1.png" alt="Runa Kala Logo">
+    <span>Runa Kala Library</span>
+</div>
         <span>Runa Kala Library</span>
     </div>
 
