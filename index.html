@@ -183,21 +183,118 @@ footer{
     background:var(--deep-maroon);
     color:white;
 }
+    <style>
+
+/* LOGO PREMIUM */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:700;
+    font-size:1.3rem;
+    color:var(--deep-maroon);
+    letter-spacing:1px;
+    opacity:0;
+    animation:fadeInLogo 1.5s ease forwards;
+}
+
+.logo img{
+    height:50px;
+    transition:.4s ease;
+}
+
+/* GOLD GLOW HOVER */
+.logo:hover img{
+    filter:drop-shadow(0 0 8px var(--warm-gold));
+    transform:scale(1.05);
+}
+
+@keyframes fadeInLogo{
+    to{ opacity:1; }
+}
+
+/* NAV SHRINK ON SCROLL */
+nav{
+    transition:.4s ease;
+}
+
+nav.shrink{
+    padding:10px 8%;
+    backdrop-filter:blur(10px);
+}
+
+/* HERO LOGO CINEMATIC */
+.hero-logo{
+    height:110px;
+    margin-bottom:25px;
+    opacity:0;
+    transform:translateY(20px);
+    animation:heroReveal 1.8s ease forwards;
+}
+
+@keyframes heroReveal{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* HERO TEXT ANIMATION */
+.hero h1{
+    opacity:0;
+    animation:fadeUp 1.5s ease forwards;
+    animation-delay:.5s;
+}
+
+.hero p{
+    opacity:0;
+    animation:fadeUp 1.5s ease forwards;
+    animation-delay:.9s;
+}
+
+.hero-buttons{
+    opacity:0;
+    animation:fadeUp 1.5s ease forwards;
+    animation-delay:1.2s;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 <body>
 
 
 <nav>
-    <a href="#home">Beranda</a>
-    <a href="#about">About Me</a>
-    <a href="#aboutus">About Us</a>
-    <a href="#media">Media</a>
-    <a href="#feedback">Feedback</a>
-    <a onclick="openModal()">Login</a>
+  <nav>
+
+    <div class="logo">
+        <img src="logo.png" alt="Runa Kala Logo">
+        <span>Runa Kala Library</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Beranda</a>
+        <a href="#about">About</a>
+        <a href="#aboutus">About Us</a>
+        <a href="#media">Media</a>
+        <a href="#feedback">Feedback</a>
+        <a onclick="openModal()">Login</a>
+    </div>
+
 </nav>
 
 <section class="hero" id="home">
+    <img src="logo.png" alt="Hero Logo" class="hero-logo">
     <h1>RUNA KALA LIBRARY</h1>
     <p>
         A Dawn of Stories and Creative Expression ✨.
@@ -442,6 +539,10 @@ localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
 notif.innerHTML="<span class='success'>Feedback berhasil dikirim ✨</span>";
 e.target.reset();
 }
+    window.addEventListener("scroll", function(){
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("shrink", window.scrollY > 50);
+});
     
 </script>
 
