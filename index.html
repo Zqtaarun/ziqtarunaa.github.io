@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+<style>
 *{
     margin:0;
     padding:0;
@@ -18,33 +19,33 @@
 html{ scroll-behavior:smooth; }
 
 :root{
-    --saffron:#E67E22;
-    --golden:#F5E6C8;
-    --maroon:#6E1E2A;
-    --accent-gold:#D4AF37;
+    --saffron:#F77F00;          /* Aruna energy */
+    --warm-gold:#E6B325;        /* Light & value */
+    --deep-maroon:#5A1E2A;      /* Bollywood elegance */
+    --cream:#F8F1E5;            /* Clean base */
+    --peach-gold:linear-gradient(135deg,#FFB07C,#F6C453);
 }
 
 body{
-    background:var(--golden);
-    color:var(--maroon);
-    overflow-x:hidden;
+    background:var(--cream);
+    color:var(--deep-maroon);
 }
 
 /* NAVBAR */
 nav{
-    background:rgba(245,230,200,0.95);
-    padding:20px;
+    background:rgba(248,241,229,0.95);
+    padding:18px;
     text-align:center;
     position:sticky;
     top:0;
     z-index:999;
-    border-bottom:2px solid var(--accent-gold);
+    border-bottom:2px solid var(--warm-gold);
 }
 
 nav a{
-    margin:0 20px;
+    margin:0 18px;
     text-decoration:none;
-    color:var(--maroon);
+    color:var(--deep-maroon);
     font-weight:500;
     transition:.3s;
 }
@@ -53,7 +54,7 @@ nav a:hover{
     color:var(--saffron);
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
@@ -62,23 +63,17 @@ nav a:hover{
     align-items:center;
     text-align:center;
     padding:20px;
-    background:linear-gradient(
-        to bottom,
-        #FF8C42,
-        #F4C430,
-        #FFF5E1
-    );
+    background:var(--peach-gold);
 }
 
 .hero h1{
-    font-size:3rem;
+    font-size:3.2rem;
     margin-bottom:20px;
-    color:var(--maroon);
 }
 
 .hero p{
     max-width:600px;
-    margin-bottom:30px;
+    margin-bottom:35px;
     font-size:1.1rem;
 }
 
@@ -86,46 +81,44 @@ nav a:hover{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
-    justify-content:center;
 }
 
 .hero-buttons a{
-    padding:12px 30px;
-    text-decoration:none;
+    padding:14px 32px;
     border-radius:30px;
+    text-decoration:none;
     font-weight:600;
     transition:.3s;
 }
 
 .primary-btn{
-    background:var(--maroon);
+    background:var(--deep-maroon);
     color:white;
 }
 
 .secondary-btn{
-    border:2px solid var(--maroon);
-    color:var(--maroon);
+    border:2px solid var(--deep-maroon);
+    color:var(--deep-maroon);
 }
 
 .hero-buttons a:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
-/* SECTION STYLE */
+/* SECTION */
 .section{
     padding:100px 15%;
-    border-bottom:2px solid var(--accent-gold);
-    background:white;
+    border-bottom:1px solid var(--warm-gold);
 }
 
 .section:nth-child(even){
-    background:var(--golden);
+    background:#fff;
 }
 
 .section h2{
-    margin-bottom:30px;
     font-size:2rem;
-    color:var(--maroon);
+    margin-bottom:30px;
+    color:var(--deep-maroon);
 }
 
 .section p{
@@ -136,7 +129,7 @@ nav a:hover{
 /* MEDIA */
 iframe{
     width:100%;
-    border-radius:10px;
+    border-radius:12px;
     margin-top:20px;
 }
 
@@ -145,15 +138,16 @@ input, textarea{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border:1px solid var(--accent-gold);
+    border:1px solid var(--warm-gold);
     border-radius:8px;
+    background:white;
 }
 
 button{
     padding:12px 20px;
     border:none;
     border-radius:8px;
-    background:var(--maroon);
+    background:var(--deep-maroon);
     color:white;
     cursor:pointer;
     transition:.3s;
@@ -163,11 +157,30 @@ button:hover{
     background:var(--saffron);
 }
 
-/* FOOTER */
+/* LOGIN MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    padding:40px;
+    width:350px;
+    border-radius:15px;
+    border-top:6px solid var(--warm-gold);
+}
+
+.error{ color:#c0392b; font-size:14px; }
+
 footer{
     text-align:center;
     padding:30px;
-    background:var(--maroon);
+    background:var(--deep-maroon);
     color:white;
 }
 </style>
@@ -178,7 +191,7 @@ footer{
 
 <nav>
     <a href="#home">Beranda</a>
-    <a href="#about">About Me / Admin</a>
+    <a href="#about">About Me</a>
     <a href="#aboutus">About Us</a>
     <a href="#media">Media</a>
     <a href="#feedback">Feedback</a>
@@ -198,12 +211,12 @@ footer{
 </section>
 
 <section id="about">
-   <section class="section" id="about">
+  <section class="section" id="about">
     <h2>About the Founder</h2>
     <p><strong>Ziqta Aruna Syahidah</strong></p>
     <p>
-    Runa Kala Library lahir dari semangat cahaya fajar — tempat warna, seni, dan cerita bertemu. 
-    Sebuah ruang pribadi yang merayakan literasi, kreativitas, dan ekspresi.
+    Runa Kala Library lahir dari semangat cahaya fajar —
+    tempat warna, seni, dan cerita bertemu.
     </p>
 
     <p>
@@ -211,19 +224,18 @@ footer{
     📷 <a href="https://www.instagram.com/zqtarunaa_" target="_blank">@zqtarunaa_</a>
     </p>
 </section>
-    
-    <section id="aboutus">
-    <section class="section" id="aboutus">
+
+<section class="section" id="aboutus">
     <h2>About Us</h2>
 
     <p>🎓 Students & University Learners</p>
     <p>💡 Independent Creators</p>
     <p>📚 Bibliophiles</p>
-    <p>🌐 Digital-era Thinkers</p>
+    <p>🌐 Abibliophobia & Book-bosomed</p>
 
     <p>
-   Runa Kala Library represents the quiet power of dawn — a moment where darkness turns into possibility. “Runa” carries the whisper of Aruna, the light before sunrise. “Kala” honors art as a language beyond borders.
-   This is not just a library. It is a living canvas of stories.
+    This is not just a library.
+    It is a living canvas of stories inspired by the warmth of dawn.
     </p>
 </section>
     
