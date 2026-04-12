@@ -720,7 +720,9 @@ function tampilkanReview(bookId) {
 }
 
 /* Load books on page start */
-renderBooks(books);
+document.addEventListener("DOMContentLoaded", function() {
+  renderBooks(books);
+});
 </script>
 </body>
 </html>
